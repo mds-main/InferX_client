@@ -1,0 +1,61 @@
+{
+    "name": "inferx",
+    "version": "1.1.0",
+    "description": "x402-native AI inference middleware for Venice.ai. OpenAI-compatible chat completions with USDC payments , no accounts, no API keys.",
+    "author": "inferx",
+    "license": "MIT",
+    "homepage": "https://ai-inferx.vercel.app",
+    "keywords": [
+        "inferx",
+        "skill",
+        "ai",
+        "inference",
+        "llm",
+        "venice",
+        "openai-compatible",
+        "x402",
+        "crypto",
+        "usdc",
+        "chat-completions",
+        "streaming",
+        "structured-output",
+        "function-calling",
+        "vision",
+        "multimodal",
+        "prepaid-balance",
+        "web-search"
+    ],
+    "inferx": {
+        "emoji": "⚡",
+        "category": "ai-inference",
+        "api_base": "https://ai-inferx.vercel.app/api/v1",
+        "files": {
+            "SKILL.md": "https://ai-inferx.vercel.app/api/skill/SKILL.md",
+            "PAYMENT.md": "https://ai-inferx.vercel.app/api/skill/PAYMENT.md"
+        },
+        "requires": {
+            "wallet": "EVM-compatible wallet (Base network)",
+            "currency": "USDC on Base",
+            "bins": [
+                "curl"
+            ]
+        },
+        "triggers": [
+            "inferx",
+            "ai inference",
+            "chat completion",
+            "llm",
+            "venice ai",
+            "x402 inference",
+            "run model",
+            "ask ai",
+            "generate text",
+            "structured output",
+            "function calling",
+            "vision",
+            "web search",
+            "prepaid balance",
+            "top up wallet"
+        ]
+    }
+}
