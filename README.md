@@ -39,19 +39,19 @@ pnpm inferx models
 
 ```bash
 # Basic inference
-pnpm inferx infer --model llama-3.3-70b --prompt "What is 2+2?" --max-tokens 64
+pnpm inferx infer --model qwen3-5-35b-a3b --prompt "What is 2+2?" --max-tokens 64
 
 # Streaming
-pnpm inferx infer --model qwen3-4b --prompt "Write a haiku" --stream
+pnpm inferx infer --model claude-opus-4-6 --prompt "Write a haiku" --stream
 
 # Dry-run (price check only, no payment)
-pnpm inferx infer --model deepseek-r1-671b --prompt "test" --dry-run
+pnpm inferx infer --model gemini-3-1-pro-preview --prompt "test" --dry-run
 
 # With task hint (auto-resolves max tokens)
-pnpm inferx infer --model llama-3.3-70b --prompt "Is this spam?" --task classify
+pnpm inferx infer --model zai-org-glm-5 --prompt "Is this spam?" --task classify
 
 # Structured output
-pnpm inferx infer --model llama-3.3-70b --prompt "Extract: John is 30 in NYC" --response-format '{"type":"json_schema","json_schema":{"name":"person","strict":true,"schema":{"type":"object","properties":{"name":{"type":"string"},"age":{"type":"integer"},"city":{"type":"string"}},"required":["name","age","city"],"additionalProperties":false}}}'
+pnpm inferx infer --model minimax-m25 --prompt "Extract: John is 30 in NYC" --response-format '{"type":"json_schema","json_schema":{"name":"person","strict":true,"schema":{"type":"object","properties":{"name":{"type":"string"},"age":{"type":"integer"},"city":{"type":"string"}},"required":["name","age","city"],"additionalProperties":false}}}'
 ```
 
 ### Prepaid Balance
@@ -64,7 +64,7 @@ pnpm inferx topup --amount 5.00
 pnpm inferx balance
 
 # Inference from balance (~0.1ms overhead)
-pnpm inferx balance-infer --model qwen3-4b --prompt "Hello" --max-tokens 128
+pnpm inferx balance-infer --model zai-org-glm-4.7-flash --prompt "Hello" --max-tokens 128
 
 # Refresh auth token (when it expires after 30 days)
 pnpm inferx refresh-token
@@ -92,13 +92,13 @@ pnpm typecheck
 pnpm inferx models
 
 # 2. Free — dry-run price discovery
-pnpm inferx infer --model qwen3-4b --prompt "test" --max-tokens 32 --dry-run
+pnpm inferx infer --model gemini-3-1-pro-preview --prompt "test" --max-tokens 32 --dry-run
 
 # 3. Paid — real inference ($0.001 minimum)
-pnpm inferx infer --model qwen3-4b --prompt "What is 2+2?" --max-tokens 64
+pnpm inferx infer --model qwen3-5-35b-a3b --prompt "What is 2+2?" --max-tokens 64
 
 # 4. Paid — streaming inference
-pnpm inferx infer --model qwen3-4b --prompt "Write a haiku about code" --stream
+pnpm inferx infer --model claude-opus-4-6 --prompt "Write a haiku about code" --stream
 
 # 5. Paid — top up prepaid balance
 pnpm inferx topup --amount 0.01
@@ -107,7 +107,7 @@ pnpm inferx topup --amount 0.01
 pnpm inferx balance
 
 # 7. Paid — inference from balance 
-pnpm inferx balance-infer --model qwen3-4b --prompt "Hello" --max-tokens 64
+pnpm inferx balance-infer --model zai-org-glm-4.7-flash --prompt "Hello" --max-tokens 64
 
 # 8. Free — refresh auth token
 pnpm inferx refresh-token
@@ -122,7 +122,7 @@ const client = new InferXClient(process.env.WALLET_PRIVATE_KEY!);
 
 // Per-request x402 inference
 const result = await client.infer({
-  model: 'llama-3.3-70b',
+  model: 'gemini-3-1-pro-preview',
   prompt: 'Explain quantum computing in one sentence',
   maxTokens: 128,
 });
@@ -132,7 +132,7 @@ console.log(`Paid: $${result.payment.amountUsdc} USDC`);
 // Top up and use balance
 await client.topUp(5.0);
 const fast = await client.inferWithBalance({
-  model: 'qwen3-4b',
+  model: 'zai-org-glm-5',
   prompt: 'Hello!',
   maxTokens: 64,
 });
