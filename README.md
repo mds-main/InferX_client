@@ -1,4 +1,4 @@
-# InferX Client ⚡
+# [InferX Client ⚡](https://ai-inferx.vercel.app)
 
 **Production-ready TypeScript CLI client** for [InferX](https://ai-inferx.vercel.app) — x402 AI inference with USDC payments on Base network. No accounts, no API keys — your EVM wallet IS your identity.
 
